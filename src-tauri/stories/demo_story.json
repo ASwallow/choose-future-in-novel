@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "魔法森林",
+    "author": "故事引擎演示",
+    "version": "1.0.0"
+  },
+  "startNode": "start",
+  "nodes": {
+    "start": {
+      "content": "你站在一片古老森林的边缘。参天大树遮蔽了大部分阳光，一条磨损的土路通向森林深处，另一条狭窄的小径岔向远处一间若隐若现的小木屋。",
+      "choices": [
+        {
+          "text": "沿主路深入森林",
+          "nextNode": "deep_forest"
+        },
+        {
+          "text": "去查看那间小木屋",
+          "nextNode": "cottage_exterior"
+        }
+      ]
+    },
+    "deep_forest": {
+      "content": "小路蜿蜒深入森林。古老的橡树树皮上刻着奇异的符号。走了许久，你来到一片空地，一座银色喷泉矗立其中，泉水闪烁着超凡脱俗的光芒。",
+      "choices": [
+        {
+          "text": "饮一口泉水",
+          "nextNode": "drink_fountain",
+          "setFlags": {
+            "drank_fountain": true
+          }
+        },
+        {
+          "text": "仔细端详那些刻在树上的符号",
+          "nextNode": "examine_symbols",
+          "setFlags": {
+            "read_symbols": true
+          }
+        },
+        {
+          "text": "返回森林入口",
+          "nextNode": "start"
+        }
+      ]
+    },
+    "cottage_exterior": {
+      "content": "一间古朴的小木屋坐落在林间空地上。烟囱冒着炊烟，空气中飘来一阵甜香。门微微虚掩着，你能听到有人在哼着小调。",
+      "choices": [
+        {
+          "text": "敲门",
+          "nextNode": "meet_witch"
+        },
+        {
+          "text": "先从窗户偷看一下",
+          "nextNode": "peek_window",
+          "setFlags": {
+            "spied_on_witch": true
+          }
+        }
+      ]
+    },
+    "drink_fountain": {
+      "content": "泉水清凉甘冽。饮下之后，一股暖流涌遍全身。你的感官变得敏锐——你能听到树木的低语，感受到森林本身的脉动。你得到了森林之灵的祝福。",
+      "choices": [
+        {
+          "text": "继续深入森林",
+          "nextNode": "forest_heart"
+        },
+        {
+          "text": "去看看之前发现的那间小木屋",
+          "nextNode": "cottage_exterior"
+        }
+      ]
+    },
+    "examine_symbols": {
+      "content": "符号讲述了一个古老的故事：一位强大的精灵守护着这片森林的心脏。饮过银色喷泉之水的人将获得精灵的庇护；而读懂符号的人将得知一棵最古老的橡树下埋藏着一件秘宝。",
+      "choices": [
+        {
+          "text": "寻找隐藏的秘宝",
+          "nextNode": "find_treasure",
+          "conditions": {
+            "read_symbols": true
+          }
+        },
+        {
+          "text": "饮一口泉水",
+          "nextNode": "drink_fountain",
+          "setFlags": {
+            "drank_fountain": true
+          }
+        },
+        {
+          "text": "继续深入森林",
+          "nextNode": "forest_heart"
+        }
+      ]
+    },
+    "find_treasure": {
+      "content": "顺着符号的指引，你找到了森林中最古老的那棵橡树。在它盘根错节的根系下，被苔藓和落叶半掩着，你发现了一个小木匣。里面是一枚散发着柔和绿光的水晶护身符——「森林之心」。",
+      "choices": [
+        {
+          "text": "戴上护身符，前往森林心脏",
+          "nextNode": "forest_heart",
+          "setFlags": {
+            "has_amulet": true
+          }
+        }
+      ]
+    },
+    "meet_witch": {
+      "content": "一位老妇人微笑着打开门。「我等你很久了，」她说，「我是这片森林的守护者。旅人，你可以在这里歇歇脚。」她递给你一杯草药茶，给你讲述森林魔法的故事。",
+      "choices": [
+        {
+          "text": "询问关于森林心脏的事",
+          "nextNode": "witch_guidance"
+        },
+        {
+          "text": "道谢后去探索森林",
+          "nextNode": "deep_forest"
+        }
+      ]
+    },
+    "peek_window": {
+      "content": "透过窗户，你看到一位老妇人正在搅动一口冒泡的大锅。墙上摆满了装着草药和奇异材料的瓶瓶罐罐。她突然转过头，直直地看向窗户——你被发现了！",
+      "choices": [
+        {
+          "text": "道歉并敲门",
+          "nextNode": "meet_witch"
+        },
+        {
+          "text": "跑进森林里",
+          "nextNode": "deep_forest"
+        }
+      ]
+    },
+    "witch_guidance": {
+      "content": "老妇人的眼睛亮了起来。「森林心脏是一个神圣的地方。如果你饮过银色喷泉的泉水，道路会自动为你显现。如果你佩戴着森林之心护身符，精灵会视你为朋友。」她送给你一个小小的护身符以保平安。",
+      "choices": [
+        {
+          "text": "前往森林心脏",
+          "nextNode": "forest_heart"
+        }
+      ]
+    },
+    "forest_heart": {
+      "content": "你来到了森林的心脏——一片沐浴在金色光芒中的壮丽空地。一棵参天古树矗立在中央，树干比一间房子还粗。缥缈的光点在枝叶间翩翩起舞。",
+      "choices": [
+        {
+          "text": "佩戴护身符走向古树",
+          "nextNode": "good_ending",
+          "conditions": {
+            "has_amulet": true
+          }
+        },
+        {
+          "text": "带着喷泉的祝福走向古树",
+          "nextNode": "neutral_ending",
+          "conditions": {
+            "drank_fountain": true
+          }
+        },
+        {
+          "text": "毫无准备地走向古树",
+          "nextNode": "bad_ending"
+        }
+      ]
+    },
+    "good_ending": {
+      "content": "当你走近时，护身符绽放出耀眼的光芒。古树震颤，一个声音回荡在空地中：「你已证明了自己的资格，森林之心的守护者。」森林在你面前分开，展现出一个难以想象的美丽秘境。你成为了魔法森林的新守护者。\n\n～ 真结局：森林守护者 ～",
+      "choices": []
+    },
+    "neutral_ending": {
+      "content": "喷泉的祝福保护着你，森林之灵认可了你的存在。古树与你分享了它古老的智慧，你离开森林时已焕然一新——携带着凡人鲜少拥有的知识。\n\n～ 好结局：远古的智慧 ～",
+      "choices": []
+    },
+    "bad_ending": {
+      "content": "既无庇护也无祝福，森林之灵认不出你。缥缈的光点不祥地旋转着，身后的路也消失了。你在森林中徘徊了数日才终于找到出路，却对林中发生的一切毫无记忆。\n\n～ 普通结局：迷途旅人 ～",
+      "choices": []
+    }
+  }
+}

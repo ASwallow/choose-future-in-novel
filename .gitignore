@@ -1,0 +1,19 @@
+# Node
+node_modules/
+package-lock.json
+
+# Rust build
+src-tauri/target/
+src-tauri/gen/
+
+# Build output
+release/
+*.pdb
+
+# Internal
+CLAUDE.md
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
